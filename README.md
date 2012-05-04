@@ -41,3 +41,41 @@ A distance within filter.  The distance within filter returns all items that fal
 ```
 /DWITHIN/GEOMTYPE,BUFFERDIST,GEOMETRY
 ```
+
+### PROP
+
+A property comparison filter. This filter allows you to perform arbitrary property comparison operations.  The operation type is specified by the `COMPTYPE` section, and the `VALUE` section contains the value (or values) that will be used in the comparison operation.
+
+```
+/PROP/COMPTYPE/VALUE
+```
+
+#### Equality
+
+```
+/PROP/EQ/VALUE
+```
+
+#### Greater Than
+
+```
+/PROP/GT/VALUE
+```
+
+#### Greater Than or Equal To
+
+```
+/PROP/GTE/VALUE
+```
+
+#### Less Than
+
+```
+/PROP/LT/VALUE
+```
+
+#### Less Than or Equal To
+
+```
+/PROP/LTE/VALUE
+```
