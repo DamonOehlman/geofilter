@@ -1,0 +1,30 @@
+{
+  "name": "geofilter",
+  "description": "Simple Geospatial filter language designed for readable urls",
+  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "tags": [
+    "query",
+    "match",
+    "filter"
+  ],
+  "version": "0.0.0",
+  "main": "pkg/cjs/geofilter",
+  "engines": {
+    "node": ">= 0.4.x < 0.7.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DamonOehlman/geofilter.git"
+  },
+  "bugs": {
+    "url": "http://github.com/DamonOehlman/geofilter/issues"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "contributors": [],
+  "optionalDependencies": {}
+}
