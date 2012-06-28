@@ -9,6 +9,14 @@ function geofilter(url, opts) {
     return new RuleSet(rules);
 }
 
+// initialise the "hidden" converters property
+geofilter._converters = {};
+
+// handle converter registration
+geofilter.registerConverter = function(type, handler) {
+    return (geofilter._converters[type] = handler);
+};
+
 // patch the filter rule and ruleset classes into geofilter
 geofilter.Rule = Rule;
 geofilter.RuleSet = RuleSet;
