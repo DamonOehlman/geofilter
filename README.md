@@ -1,6 +1,6 @@
 # GeoFilter
 
-Geofilter is a simple geospatial filter language that is designed to work well with web applications.  It's primary purpose is to help with creating readable, cacheable urls for geospatial searches.
+Geofilter is a simple geospatial filter language that is designed to work well with web applications.  It's primary purpose is to help with creating readable, cacheable urls for geospatial searches but also uses an [internal JSON representation](/DamonOehlman/geofilter/wiki/Internal-Representation) that can be easily translated to other spatial filter types (e.g. [OGC Filter Format](http://www.opengeospatial.org/standards/filter)).
 
 ## General Syntax
 
@@ -22,7 +22,11 @@ At this stage, no provision for an OR operator is being considered.
 
 ## Filter Types
 
-The following filter types are being investigated / implemented for the initial release of the GeoFilter library.
+The following filter types are being investigated / implemented for the initial release of the GeoFilter library.  While some of the filter types do not include a `/P:PROPNAME` specifier (geospatial queries usually), others will usually require this syntax.
+
+The geofilter initialization step, does include provision for configuring the default properties that will be targeted for both spatial and also a non-spatial filter operation.  The defaults used are `the_geom` for a spatial operation, and `name` for a non-spatial operation.
+
+In all of the filter operations specified below, you can specify a leading `/P:PROPNAME` url segment to override the default targeted fields.
 
 ### BBOX
 
@@ -42,40 +46,36 @@ A distance within filter.  The distance within filter returns all items that fal
 /DWITHIN/GEOMTYPE,BUFFERDIST,GEOMETRY
 ```
 
-### PROP
-
-A property comparison filter. This filter allows you to perform arbitrary property comparison operations.  The operation type is specified by the `COMPTYPE` section, and the `VALUE` section contains the value (or values) that will be used in the comparison operation.
+### EQ - Equals
 
 ```
-/PROP/COMPTYPE/VALUE
+/EQ/VALUE
 ```
 
-#### Equality
+### GT - Greater Than
 
 ```
-/PROP/EQ/VALUE
+/GT/VALUE
 ```
 
-#### Greater Than
+### GTE - Greater Than or Equal To
 
 ```
-/PROP/GT/VALUE
+/GTE/VALUE
 ```
 
-#### Greater Than or Equal To
+### LT - Less Than
 
 ```
-/PROP/GTE/VALUE
+/LT/VALUE
 ```
 
-#### Less Than
+### LTE - Less Than or Equal To
 
 ```
-/PROP/LT/VALUE
+/LTE/VALUE
 ```
 
-#### Less Than or Equal To
+## Limitations
 
-```
-/PROP/LTE/VALUE
-```
+The Geofilter format is __not__ designed to provide constructs for describing complicated filter operations, and has not provision for providing __OR__ rule (all filters are combined with an __AND__ condition).
