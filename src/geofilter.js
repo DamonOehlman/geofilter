@@ -6,8 +6,6 @@ function geofilter(url, opts) {
         // split the url on the 
         parts = (url || '').split(/\//);
 
-    console.log(parts);
-    
     return new RuleSet(rules);
 }
 
