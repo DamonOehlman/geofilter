@@ -1,18 +1,18 @@
 var mockrules = {};
 
-mockrules.likeFred = {
+mockrules.likeSand = {
     type: 'like',
     args: {
-        property: 'name',
-        value: 'Fred'
+        property: 'SEDCLASS',
+        value: 'sand*'
     }
 };
 
-mockrules.olderThan50 = {
+mockrules.heavierThan20 = {
     type: 'gt',
     args: {
-        property: 'age',
-        value: 50
+        property: 'WEIGHT',
+        value: 20
     }
 };
 

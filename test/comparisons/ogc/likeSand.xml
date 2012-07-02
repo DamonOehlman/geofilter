@@ -1,0 +1,4 @@
+<ogc:PropertyIsLike wildCard="*" singleChar="?" escapeChar="\\" matchCase="false">
+    <ogc:PropertyName>SEDCLASS</ogc:PropertyName>
+    <ogc:Literal>sand*</ogc:Literal>
+</ogc:PropertyIsLike>

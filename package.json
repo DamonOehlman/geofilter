@@ -11,8 +11,12 @@
   "engines": {
     "node": ">= 0.6.x < 0.9.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "formatter": "0.1.x"
+  },
   "devDependencies": {
+    "interleave": "0.4.x",
+    "rigger-collate": "0.2.x",
     "mocha": "1.2.x",
     "expect.js": "0.1.x"
   },

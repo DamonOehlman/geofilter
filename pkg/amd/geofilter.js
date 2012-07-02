@@ -35,7 +35,7 @@ define('geofilter', [], function() {
       
       // if we don't have the converter, but do have the ability to require the converter do that now
       if ((! converter) && typeof require == 'function') {
-          converter = geofilter._converters[format] = require('./converters/' + format);
+          converter = geofilter._converters[format] = require('./' + format);
       }
       
       // if we definitely don't have a convert (after a require attempt) then raise an error
@@ -71,5 +71,5 @@ define('geofilter', [], function() {
   geofilter.Rule = Rule;
   geofilter.RuleSet = RuleSet;
 
-  return geofilter;
+  if (typeof geofilter != 'undefined') { return geofilter; }
 });

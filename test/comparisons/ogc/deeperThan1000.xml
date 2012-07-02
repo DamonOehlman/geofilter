@@ -1,0 +1,6 @@
+<ogc:Filter>
+    <ogc:PropertyIsGreaterThan>
+        <ogc:PropertyName>DEPTH_M</ogc:PropertyName>
+        <ogc:Literal>1000</ogc:Literal>
+    </ogc:PropertyIsGreaterThan>
+</ogc:Filter>

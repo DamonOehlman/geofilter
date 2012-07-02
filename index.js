@@ -13,5 +13,3 @@ function not(filename) {
 extraModules.filter(not('geofilter.js')).forEach(function(file) {
     require('./pkg/cjs/' + file);
 });
-
-console.log(geofilter);
