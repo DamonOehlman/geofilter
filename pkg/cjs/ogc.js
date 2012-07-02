@@ -10,7 +10,10 @@ var _ogc_templates = {
 
 
 var builders = {},
-    templates = {};
+    templates = {},
+    propertyTags = {
+        gt: 'PropertyIsGreaterThan'
+    };
     
 function makePropertyTag(args, opts) {
     return templates.property(args);
@@ -41,14 +44,27 @@ geofilter.registerConverter('ogc', function(rules, opts) {
     
     // iterate through the rules and generate the output
     rules.forEach(function(rule) {
-        var builder = builders[(rule || {}).type];
+        var type = (rule || {}).type,
+            builder = builders[type],
+            tagName = propertyTags[type];
         
         // if we have a valid builder, then process
         if (typeof builder == 'function') {
             // run the builder
             output += builder(rule.type, rule.args || {}, opts);
         }
+        else if (tagName) {
+            output += '<ogc:' + tagName + '>' + makePropertyTag(rule.args || {}, opts) + '</ogc:' + tagName + '>';
+        }
+        else {
+            throw new Error('Unable to build OGC filter for rule type "' + (rule || {}).type + '"');
+        }
     });
+    
+    // if the number of rules is greater than 1, combine in an And clause
+    if (rules.length > 1) {
+        output = '<ogc:And>' + output + '</ogc:And>';
+    }
     
     return output;
 });
