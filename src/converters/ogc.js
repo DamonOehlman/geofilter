@@ -59,7 +59,7 @@ geofilter.registerConverter('ogc', function(rules, opts) {
         output = '<ogc:And>' + output + '</ogc:And>';
     }
     
-    return output;
+    return '<ogc:Filter>' + output + '</ogc:Filter>';
 });
 
 // initialise the templates

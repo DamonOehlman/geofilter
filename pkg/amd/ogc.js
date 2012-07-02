@@ -63,7 +63,7 @@ define('ogc', ['./geofilter', 'formatter', 'underscore'], function(geofilter, fo
           output = '<ogc:And>' + output + '</ogc:And>';
       }
       
-      return output;
+      return '<ogc:Filter>' + output + '</ogc:Filter>';
   });
   
   // initialise the templates

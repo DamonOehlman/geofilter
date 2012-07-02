@@ -1,4 +1,6 @@
-<ogc:PropertyIsGreaterThan>
-    <ogc:PropertyName>WEIGHT</ogc:PropertyName>
-    <ogc:Literal>20</ogc:Literal>
-</ogc:PropertyIsGreaterThan>
+<ogc:Filter>
+    <ogc:PropertyIsGreaterThan>
+        <ogc:PropertyName>WEIGHT</ogc:PropertyName>
+        <ogc:Literal>20</ogc:Literal>
+    </ogc:PropertyIsGreaterThan>
+</ogc:Filter>

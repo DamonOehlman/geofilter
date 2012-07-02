@@ -1,10 +1,12 @@
-<ogc:And>
-    <ogc:PropertyIsGreaterThan>
-        <ogc:PropertyName>WEIGHT</ogc:PropertyName>
-        <ogc:Literal>20</ogc:Literal>
-    </ogc:PropertyIsGreaterThan>
-    <ogc:PropertyIsLike wildCard="*" singleChar="?" escapeChar="\\" matchCase="false">
-        <ogc:PropertyName>SEDCLASS</ogc:PropertyName>
-        <ogc:Literal>sand*</ogc:Literal>
-    </ogc:PropertyIsLike>
-</ogc:And>
+<ogc:Filter>
+    <ogc:And>
+        <ogc:PropertyIsGreaterThan>
+            <ogc:PropertyName>WEIGHT</ogc:PropertyName>
+            <ogc:Literal>20</ogc:Literal>
+        </ogc:PropertyIsGreaterThan>
+        <ogc:PropertyIsLike wildCard="*" singleChar="?" escapeChar="\\" matchCase="false">
+            <ogc:PropertyName>SEDCLASS</ogc:PropertyName>
+            <ogc:Literal>sand*</ogc:Literal>
+        </ogc:PropertyIsLike>
+    </ogc:And>
+</ogc:Filter>
