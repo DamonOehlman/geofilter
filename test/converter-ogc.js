@@ -14,4 +14,10 @@ describe('OGC filter converter tests', function() {
         converter:  'ogc',
         targetFile: 'ogc/heavierThan20.xml' 
     }));
+    
+    it('should be able to combine two rules using with an ogc:And statement', comparator({
+        rules:      [mockrules.heavierThan20, mockrules.likeSand],
+        converter:  'ogc',
+        targetFile: 'ogc/sandyAndHeavy.xml'
+    }));
 });
