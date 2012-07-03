@@ -1,4 +1,4 @@
-// req: ./geofilter, formatter, underscore
+// req: ./geofilter, formatter, underscore as _
 
 //=collate ogc-templates
 

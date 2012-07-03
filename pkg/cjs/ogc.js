@@ -1,6 +1,6 @@
 var geofilter = require('./geofilter'),
     formatter = require('formatter'),
-    underscore = require('underscore');
+    _ = require('underscore');
 
 
 var _ogc_templates = {

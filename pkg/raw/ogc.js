@@ -1,4 +1,3 @@
-// req: ./geofilter, formatter, underscore
 
 var _ogc_templates = {
   'isLike': '<ogc:PropertyIsLike wildCard="*" singleChar="?" escapeChar="\\\\" matchCase="{{ matchCase }}">{{ inner }}</ogc:PropertyIsLike>',

@@ -1,4 +1,4 @@
-define('ogc', ['./geofilter', 'formatter', 'underscore'], function(geofilter, formatter, underscore) {
+define('ogc', ['./geofilter', 'formatter', 'underscore'], function(geofilter, formatter, _) {
   
   var _ogc_templates = {
     'isLike': '<ogc:PropertyIsLike wildCard="*" singleChar="?" escapeChar="\\\\" matchCase="{{ matchCase }}">{{ inner }}</ogc:PropertyIsLike>',

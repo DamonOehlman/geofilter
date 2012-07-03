@@ -1,4 +1,4 @@
-// dep: ./geofilter, formatter, underscore
+// dep: ./geofilter, formatter, underscore as _
 
 (function () {
   
