@@ -2,6 +2,8 @@
 
 Geofilter is a simple geospatial filter language that is designed to work well with web applications.  It's primary purpose is to help with creating readable, cacheable urls for geospatial searches but also uses an [internal JSON representation](/DamonOehlman/geofilter/wiki/Internal-Representation) that can be easily translated to other spatial filter types (e.g. [OGC Filter Format](http://www.opengeospatial.org/standards/filter)).
 
+<a href="http://travis-ci.org/#!/DamonOehlman/geofilter"><img src="https://secure.travis-ci.org/DamonOehlman/geofilter.png" alt="Build Status"></a>
+
 ## General Syntax
 
 The general syntax of a geofilter is a forward-slash (`/`) delimited filter string.  The use of the forward slash means that you get readable urls for free.  
