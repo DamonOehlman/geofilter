@@ -8,6 +8,15 @@ mockrules.likeSand = {
     }
 };
 
+mockrules.likeSandNoCase = {
+    type: 'like',
+    args: {
+        property: 'SEDCLASS',
+        value: 'sand*',
+        matchCase: false
+    }
+};
+
 mockrules.heavierThan20 = {
     type: 'gt',
     args: {

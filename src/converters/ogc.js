@@ -15,8 +15,13 @@ function makePropertyTag(args, opts) {
 /* define the tag builders */
 
 builders.like = function(type, args, opts) {
-    // ensure the match case opt is defined
-    args.matchCase = args.matchCase || false;
+    // initialise default arg value
+    args.wildCard = args.wildCard || '*';
+    args.singleChar = args.singleChar || '?';
+    args.escapeChar = args.escapeChar || '\\\\';
+    
+    // initialise the match case option, default is true in the OGC spec so we will respect that
+    args.matchCase = typeof args.matchCase == 'undefined' || args.matchCase === true;
     
     // generate the tag
     return templates.isLike(_.extend({}, args, {

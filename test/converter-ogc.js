@@ -9,6 +9,12 @@ describe('OGC filter converter tests', function() {
         targetFile: 'ogc/likeSand.xml'
     }));
     
+    it('should be able to convert a single like (case sensitive) statement', comparator({
+        rules:      [mockrules.likeSandNoCase], 
+        converter:  'ogc', 
+        targetFile: 'ogc/likeSandNoCase.xml'
+    }));
+    
     it('should be able to convert a single gt statement', comparator({
         rules:      [mockrules.heavierThan20],
         converter:  'ogc',

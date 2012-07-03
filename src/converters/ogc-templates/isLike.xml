@@ -1,1 +1,1 @@
-<ogc:PropertyIsLike wildCard="*" singleChar="?" escapeChar="\\\\" matchCase="{{ matchCase }}">{{ inner }}</ogc:PropertyIsLike>
+<ogc:PropertyIsLike wildCard="{{ wildCard }}" singleChar="{{ singleChar }}" escapeChar="{{ escapeChar }}" matchCase="{{ matchCase }}">{{ inner }}</ogc:PropertyIsLike>
