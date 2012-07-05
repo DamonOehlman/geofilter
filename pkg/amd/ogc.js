@@ -1,6 +1,8 @@
 define('ogc', ['./geofilter', 'formatter', 'underscore'], function(geofilter, formatter, _) {
   
   var _ogc_templates = {
+    'bbox': '<ogc:BBOX><ogc:PropertyName>{{ property }}</ogc:PropertyName>{{ envelope }}</ogc:BBOX>',
+    'envelope': '<gml:Envelope srs="{{ srs }}"><gml:lowerCorner>{{ min }}</gml:lowerCorner><gml:upperCorner>{{ max }}</gml:upperCorner></gml:Envelope>',
     'isLike': '<ogc:PropertyIsLike wildCard="{{ wildCard }}" singleChar="{{ singleChar }}" escapeChar="{{ escapeChar }}" matchCase="{{ matchCase }}">{{ inner }}</ogc:PropertyIsLike>',
     'property': '<ogc:PropertyName>{{ property }}</ogc:PropertyName><ogc:Literal>{{ value }}</ogc:Literal>'
   };
@@ -12,11 +14,24 @@ define('ogc', ['./geofilter', 'formatter', 'underscore'], function(geofilter, fo
           gt: 'PropertyIsGreaterThan'
       };
       
+  function makeEnvelope(args, opts) {
+      // initialise the default SRS to 4326
+      args.srs = args.srs || 'EPSG:4326';
+      
+      return templates.envelope(args);
+  }
+      
   function makePropertyTag(args, opts) {
       return templates.property(args);
   }
   
   /* define the tag builders */
+  
+  builders.bbox = function(type, args, opts) {
+      return templates.bbox(_.extend({}, args, {
+          envelope: makeEnvelope(args, opts)
+      }));
+  };
   
   builders.like = function(type, args, opts) {
       // initialise default arg value

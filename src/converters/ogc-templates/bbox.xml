@@ -1,0 +1,4 @@
+<ogc:BBOX>
+    <ogc:PropertyName>{{ property }}</ogc:PropertyName>
+    {{ envelope }}
+</ogc:BBOX>

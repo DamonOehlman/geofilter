@@ -1,0 +1,6 @@
+<ogc:Filter>
+    <ogc:BBOX>
+        <ogc:PropertyName>the_geom</ogc:PropertyName>
+        <gml:Envelope srs="EPSG:4326"><gml:lowerCorner>-28.94 138.01</gml:lowerCorner><gml:upperCorner>-9.54 154.42</gml:upperCorner></gml:Envelope>
+    </ogc:BBOX>
+</ogc:Filter>

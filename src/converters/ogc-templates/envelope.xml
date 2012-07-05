@@ -1,0 +1,4 @@
+<gml:Envelope srs="{{ srs }}">
+    <gml:lowerCorner>{{ min }}</gml:lowerCorner>
+    <gml:upperCorner>{{ max }}</gml:upperCorner>
+</gml:Envelope>

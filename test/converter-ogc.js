@@ -26,4 +26,10 @@ describe('OGC filter converter tests', function() {
         converter:  'ogc',
         targetFile: 'ogc/sandyAndHeavy.xml'
     }));
+    
+    it('should be able to generate a BBOX rule', comparator({
+        rules:      [mockrules.inQLD],
+        converter:  'ogc',
+        targetFile: 'ogc/inQLD.xml'
+    }));
 });

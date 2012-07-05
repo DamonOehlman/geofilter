@@ -25,4 +25,13 @@ mockrules.heavierThan20 = {
     }
 };
 
+mockrules.inQLD = {
+    type: 'bbox',
+    args: {
+        property: 'the_geom',
+        min: '-28.94 138.01',
+        max: '-9.54 154.42'
+    }
+};
+
 module.exports = mockrules;

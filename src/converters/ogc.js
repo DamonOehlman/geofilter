@@ -8,11 +8,24 @@ var builders = {},
         gt: 'PropertyIsGreaterThan'
     };
     
+function makeEnvelope(args, opts) {
+    // initialise the default SRS to 4326
+    args.srs = args.srs || 'EPSG:4326';
+    
+    return templates.envelope(args);
+}
+    
 function makePropertyTag(args, opts) {
     return templates.property(args);
 }
 
 /* define the tag builders */
+
+builders.bbox = function(type, args, opts) {
+    return templates.bbox(_.extend({}, args, {
+        envelope: makeEnvelope(args, opts)
+    }));
+};
 
 builders.like = function(type, args, opts) {
     // initialise default arg value
