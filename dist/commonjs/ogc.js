@@ -1,4 +1,9 @@
 
+var geofilter = require('./geofilter'),
+    formatter = require('formatter'),
+    _ = require('underscore');
+
+
 var _ogc_templates = {
   'bbox': '<ogc:BBOX><ogc:PropertyName>{{ property }}</ogc:PropertyName>{{ envelope }}</ogc:BBOX>',
   'envelope': '<gml:Envelope srs="{{ srs }}"><gml:lowerCorner>{{ min }}</gml:lowerCorner><gml:upperCorner>{{ max }}</gml:upperCorner></gml:Envelope>',
@@ -88,4 +93,8 @@ geofilter.registerConverter('ogc', function(rules, opts) {
 // initialise the templates
 for (var key in _ogc_templates) {
     templates[key] = formatter(_ogc_templates[key]);
+}
+
+if (typeof ogc != 'undefined') {
+    module.exports = ogc;
 }

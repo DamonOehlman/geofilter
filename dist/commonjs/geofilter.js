@@ -1,3 +1,6 @@
+
+
+
 function Rule(type, args) {
     // check if we have been supplied a complete object in tht type object
     if (typeof type == 'object' && (! (type instanceof String))) {
@@ -69,3 +72,7 @@ geofilter.registerConverter = function(type, handler) {
 // patch the filter rule and ruleset classes into geofilter
 geofilter.Rule = Rule;
 geofilter.RuleSet = RuleSet;
+
+if (typeof geofilter != 'undefined') {
+    module.exports = geofilter;
+}
