@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
-    geofilter = module.exports = require('./pkg/cjs/geofilter'),
-    extraModules = fs.readdirSync(path.resolve(__dirname, 'pkg', 'cjs'));
+    geofilter = module.exports = require('./dist/commonjs/geofilter'),
+    extraModules = fs.readdirSync(path.resolve(__dirname, 'dist', 'commonjs'));
     
 function not(filename) {
     return function(file) {
@@ -11,5 +11,5 @@ function not(filename) {
 
 // patch in the additional modules
 extraModules.filter(not('geofilter.js')).forEach(function(file) {
-    require('./pkg/cjs/' + file);
+    require('./dist/commonjs/' + file);
 });
