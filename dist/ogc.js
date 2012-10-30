@@ -1,6 +1,26 @@
+/* ~geofilter~
+ * 
+ * Simple Geospatial filter language designed for readable urls
+ * 
+ * -meta---
+ * version:    0.1.1
+ * builddate:  2012-10-30T02:17:53.558Z
+ * generator:  interleave@0.5.23
+ * 
+ * 
+ * 
+ */ 
 
-// req: ./geofilter,formatter,underscore as _
-(function(glob) {
+// umdjs returnExports pattern: https://github.com/umdjs/umd/blob/master/returnExports.js
+(function (root, factory) {
+    if (typeof exports === 'object') {
+        module.exports = factory(require('./geofilter'), require('formatter'), require('underscore'));
+    } else if (typeof define === 'function' && define.amd) {
+        define(['./geofilter', 'formatter', 'underscore'], factory);
+    } else {
+        root['ogc'] = factory(root['./geofilter'], root['formatter'], root['underscore']);
+    }
+}(this, function (geofilter, formatter, _) {
     
     var _ogc_templates = {
       'bbox': '<ogc:BBOX><ogc:PropertyName>{{ property }}</ogc:PropertyName>{{ envelope }}</ogc:BBOX>',
@@ -93,7 +113,5 @@
         templates[key] = formatter(_ogc_templates[key]);
     }
     
-    if (typeof ogc != 'undefined') {
-        glob.ogc = ogc;
-    }
-}(this));
+    return typeof ogc != 'undefined' ? ogc : undefined;
+}));

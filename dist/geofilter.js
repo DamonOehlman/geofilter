@@ -1,6 +1,26 @@
+/* ~geofilter~
+ * 
+ * Simple Geospatial filter language designed for readable urls
+ * 
+ * -meta---
+ * version:    0.1.1
+ * builddate:  2012-10-30T02:17:53.334Z
+ * generator:  interleave@0.5.23
+ * 
+ * 
+ * 
+ */ 
 
-// req: 
-(function(glob) {
+// umdjs returnExports pattern: https://github.com/umdjs/umd/blob/master/returnExports.js
+(function (root, factory) {
+    if (typeof exports === 'object') {
+        module.exports = factory();
+    } else if (typeof define === 'function' && define.amd) {
+        define([], factory);
+    } else {
+        root['geofilter'] = factory();
+    }
+}(this, function () {
     function Rule(type, args) {
         // check if we have been supplied a complete object in tht type object
         if (typeof type == 'object' && (! (type instanceof String))) {
@@ -73,7 +93,5 @@
     geofilter.Rule = Rule;
     geofilter.RuleSet = RuleSet;
     
-    if (typeof geofilter != 'undefined') {
-        glob.geofilter = geofilter;
-    }
-}(this));
+    return typeof geofilter != 'undefined' ? geofilter : undefined;
+}));
