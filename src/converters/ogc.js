@@ -42,6 +42,29 @@ builders.like = function(type, args, opts) {
     }));
 };
 
+builders.inSet = function (type, args, opts, req) {
+
+    // initialise default arg value
+    args.wildCard = args.wildCard || '*';
+    args.singleChar = args.singleChar || '?';
+    args.escapeChar = args.escapeChar || '\\\\';
+    args.operation = args.operation || 'and';
+
+    var output = "";
+
+    var property = args.property;
+    var values = args.value.split(',');
+
+    values.forEach(function (value) {
+        args.value = args.wildCard + value + args.wildCard;
+        output += templates.isLike(_.extend({}, args, {
+            inner: makePropertyTag(args, opts, req)
+        }));
+    });
+
+    return args.operation == 'and' ? '<ogc:And>' + output + '</ogc:And>' : '<ogc:Or>' + output + '</ogc:Or>';
+};
+
 /* register the converter */
 
 geofilter.registerConverter('ogc', function(rules, opts) {
