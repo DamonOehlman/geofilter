@@ -3,9 +3,9 @@
  * Simple Geospatial filter language designed for readable urls
  * 
  * -meta---
- * version:    0.1.1
- * builddate:  2012-10-30T02:17:53.334Z
- * generator:  interleave@0.5.23
+ * version:    0.1.2
+ * builddate:  2013-06-19T02:46:52.485Z
+ * generator:  interleave@0.5.24
  * 
  * 
  * 

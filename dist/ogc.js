@@ -3,9 +3,9 @@
  * Simple Geospatial filter language designed for readable urls
  * 
  * -meta---
- * version:    0.1.1
- * builddate:  2012-10-30T02:17:53.558Z
- * generator:  interleave@0.5.23
+ * version:    0.1.2
+ * builddate:  2013-06-19T02:46:52.738Z
+ * generator:  interleave@0.5.24
  * 
  * 
  * 
@@ -68,6 +68,29 @@
         return templates.isLike(_.extend({}, args, {
             inner: makePropertyTag(args, opts)
         }));
+    };
+    
+    builders.inSet = function (type, args, opts, req) {
+    
+        // initialise default arg value
+        args.wildCard = args.wildCard || '*';
+        args.singleChar = args.singleChar || '?';
+        args.escapeChar = args.escapeChar || '\\\\';
+        args.operation = args.operation || 'and';
+    
+        var output = "";
+    
+        var property = args.property;
+        var values = args.value.split(',');
+    
+        values.forEach(function (value) {
+            args.value = args.wildCard + value + args.wildCard;
+            output += templates.isLike(_.extend({}, args, {
+                inner: makePropertyTag(args, opts, req)
+            }));
+        });
+    
+        return args.operation == 'and' ? '<ogc:And>' + output + '</ogc:And>' : '<ogc:Or>' + output + '</ogc:Or>';
     };
     
     /* register the converter */
