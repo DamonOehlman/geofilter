@@ -13,3 +13,11 @@ function not(filename) {
 extraModules.filter(not('geofilter.js')).forEach(function(file) {
     require('./dist/' + file);
 });
+
+var geofilter = module.exports = function(url, opts) {
+  var rules = [];
+  var parts = (url || '').split(/\\/);
+
+  // create the new ruleset
+  return new RuleSet(rules);
+};
