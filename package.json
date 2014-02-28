@@ -1,24 +1,15 @@
 {
   "name": "geofilter",
   "description": "Simple Geospatial filter language designed for readable urls",
-  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
-  "tags": [
-    "query",
-    "match",
-    "filter"
-  ],
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "version": "0.1.3",
-  "engines": {
-    "node": ">= 0.6.x < 0.9.0"
-  },
   "dependencies": {
-    "formatter": "0.1.x",
-    "underscore": "1.4.x"
+    "formatter": "~0.4.1",
+    "underscore": "~1.6.0"
   },
   "devDependencies": {
-    "rigger-collate": "0.3.x",
-    "mocha": "1.9.x",
-    "expect.js": "0.1.x"
+    "mocha": "~1.17.1",
+    "expect.js": "~0.3.1"
   },
   "repository": {
     "type": "git",
@@ -28,8 +19,20 @@
     "url": "http://github.com/DamonOehlman/geofilter/issues"
   },
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha --reporter spec"
+    "test": "mocha --reporter spec"
   },
-  "contributors": [],
-  "optionalDependencies": {}
+  "homepage": "https://github.com/DamonOehlman/geofilter",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "geospatial",
+    "gis",
+    "query",
+    "filter",
+    "ogc",
+    "wfs"
+  ],
+  "license": "MIT"
 }
